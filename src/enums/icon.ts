@@ -3,7 +3,7 @@ export const enum Icon {
   ZANTING = "#icon-zanting", // 暂停
   YINLIANG = "#icon-yinliang", // 音量有背景
   YINLIANG1 = "#icon-yinliang1", // 音量无背景
-  ERJI = "#icon-erji", // 耳机
+  LOGO = "#icon-logo", // LOGO
   SOUSUO = "#icon-sousuo", // 搜索
   XIAZAI = "#icon-xiazai", // 下载
   ZHEDIE = "#icon-jiantou-xia-cuxiantiao", // 折叠

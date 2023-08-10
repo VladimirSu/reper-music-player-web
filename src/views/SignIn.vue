@@ -1,35 +1,30 @@
 <template>
-  <yin-login-logo></yin-login-logo>
-  <div class="sign">
-    <div class="sign-head">
-      <span>帐号登录</span>
+  <div class="page">
+    <div class="container" >
+      <div class="title">登 录</div>
+      <el-form ref="signInForm" status-icon :model="registerForm" :rules="SignInRules">
+        <el-form-item prop="username" style="width: 200px; margin: 20px auto">
+          <el-input placeholder="用户名" v-model="registerForm.username"></el-input>
+        </el-form-item>
+        <el-form-item prop="password" style="width: 200px; margin: 20px auto">
+          <el-input type="password" placeholder="密码" v-model="registerForm.password" @keyup.enter="handleLoginIn"></el-input>
+        </el-form-item>
+          <el-button type="primary" @click="handleLoginIn">登录</el-button>
+        <br>
+          <span style="float: right">没有账号？ <a>去注册</a></span>
+      </el-form>
     </div>
-    <el-form ref="signInForm" status-icon :model="registerForm" :rules="SignInRules">
-      <el-form-item prop="username">
-        <el-input placeholder="用户名" v-model="registerForm.username"></el-input>
-      </el-form-item>
-      <el-form-item prop="password">
-        <el-input type="password" placeholder="密码" v-model="registerForm.password" @keyup.enter="handleLoginIn"></el-input>
-      </el-form-item>
-      <el-form-item class="sign-btn">
-        <el-button @click="handleSignUp">注册</el-button>
-        <el-button type="primary" @click="handleLoginIn">登录</el-button>
-      </el-form-item>
-    </el-form>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, getCurrentInstance } from "vue";
 import mixin from "@/mixins/mixin";
-import YinLoginLogo from "@/components/layouts/YinLoginLogo.vue";
 import { HttpManager } from "@/api";
 import { NavName, RouterName, SignInRules } from "@/enums";
 
 export default defineComponent({
-  components: {
-    YinLoginLogo,
-  },
+
   setup() {
     const { proxy } = getCurrentInstance();
     const { routerManager, changeIndex } = mixin();
@@ -81,6 +76,7 @@ export default defineComponent({
       handleSignUp,
     };
   },
+
 });
 </script>
 

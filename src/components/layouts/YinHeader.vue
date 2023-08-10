@@ -2,7 +2,8 @@
   <div class="yin-header">
     <!--图标-->
     <div class="header-logo" @click="goPage()">
-      <yin-icon :icon="iconList.ERJI"></yin-icon>
+<!--      <yin-icon :icon=""></yin-icon>-->
+      <img src="../../assets/images/logo.png">
       <span>{{ musicName }}</span>
     </div>
     <yin-header-nav class="yin-header-nav" :styleList="headerNavList" :activeName="activeNavName" @click="goPage"></yin-header-nav>
@@ -27,7 +28,7 @@
 import { defineComponent, ref, getCurrentInstance, computed, reactive } from "vue";
 import { Search } from "@element-plus/icons-vue";
 import { useStore } from "vuex";
-import YinIcon from "./YinIcon.vue";
+// import YinIcon from "./YinIcon.vue";
 import YinHeaderNav from "./YinHeaderNav.vue";
 import mixin from "@/mixins/mixin";
 import { HEADERNAVLIST, SIGNLIST, MENULIST, Icon, MUSICNAME, RouterName, NavName } from "@/enums";
@@ -35,7 +36,7 @@ import { HttpManager } from "@/api";
 
 export default defineComponent({
   components: {
-    YinIcon,
+    // YinIcon,
     YinHeaderNav,
   },
   setup() {
@@ -48,7 +49,7 @@ export default defineComponent({
     const signList = ref(SIGNLIST); // 右侧导航栏
     const menuList = ref(MENULIST); // 用户下拉菜单项
     const iconList = reactive({
-      ERJI: Icon.ERJI,
+      ERJI: Icon.LOGO,
     });
     const keywords = ref("");
     const activeNavName = computed(() => store.getters.activeNavName);
@@ -119,6 +120,9 @@ export default defineComponent({
 @media screen and (max-width: $sm) {
   .header-logo {
     margin: 0 1rem;
+    img{
+      width: 50px;
+    }
     span {
       display: none;
     }
@@ -149,9 +153,15 @@ export default defineComponent({
   font-size: $font-size-logo;
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+  flex-direction: row; /* 设置为纵向排列 */
+  align-items: center; /* 垂直居中对齐 */
   .icon {
     @include icon(1.9rem, $color-black);
     vertical-align: middle;
+  }
+  img {
+    width: 50px;
   }
   span {
     margin-left: 1rem;

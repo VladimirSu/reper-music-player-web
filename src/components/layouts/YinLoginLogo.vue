@@ -15,7 +15,7 @@ export default defineComponent({
   },
   data() {
     return {
-      icon: Icon.ERJI,
+      icon: Icon.LOGO,
     };
   },
 });
