@@ -1,6 +1,6 @@
 <template>
   <!--轮播图-->
-  <el-carousel v-if="swiperList.length" class="swiper-container" type="card" height="20vw" :interval="4000">
+  <el-carousel v-if="swiperList.length" class="swiper-container" height="90vh" :interval="4000">
     <el-carousel-item v-for="(item, index) in swiperList" :key="index">
       <img :src="HttpManager.attachImageUrl(item.pic)" />
     </el-carousel-item>
@@ -23,8 +23,8 @@ const songList = ref([]); // 歌单列表
 const singerList = ref([]); // 歌手列表
 const swiperList = ref([]);// 轮播图 每次都在进行查询
 const { changeIndex } = mixin();
-try {
 
+try {
   HttpManager.getBannerList().then((res) => {
     swiperList.value = (res as ResponseBody).data.sort();
   });
@@ -40,6 +40,7 @@ try {
   onMounted(() => {
     changeIndex(NavName.Home);
   });
+
 } catch (error) {
   console.error(error);
 }
@@ -52,7 +53,6 @@ try {
 .swiper-container {
   width: 90%;
   margin: auto;
-  padding-top: 20px;
   img {
     width: 100%;
   }
