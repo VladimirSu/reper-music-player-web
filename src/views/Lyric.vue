@@ -2,7 +2,7 @@
   <div class="song-container">
     <el-image class="song-pic" fit="contain" :src="attachImageUrl(songPic)" />
     <ul class="song-info">
-      <li>歌手：{{ singerName }}</li>
+      <li><h2>歌手：{{ singerName }}</h2></li>
       <li>歌曲：{{ songTitle }}</li>
     </ul>
   </div>
@@ -61,12 +61,12 @@ export default defineComponent({
           if (curTime.value >= lyricArr.value[i][0]) {
             for (let j = 0; j < lyricArr.value.length; j++) {
               (document.querySelectorAll(".has-lyric li") as NodeListOf<HTMLElement>)[j].style.color = "#000";
-              (document.querySelectorAll(".has-lyric li") as NodeListOf<HTMLElement>)[j].style.fontSize = "14px";
+              (document.querySelectorAll(".has-lyric li") as NodeListOf<HTMLElement>)[j].style.fontSize = "18px";
             }
             if (i >= 0) {
-              lrcTop.value = -i * 30 + 50 + "px";
+              lrcTop.value = -i * 30 + 200 + "px";
               (document.querySelectorAll(".has-lyric li") as NodeListOf<HTMLElement>)[i].style.color = "#95d2f6";
-              (document.querySelectorAll(".has-lyric li") as NodeListOf<HTMLElement>)[i].style.fontSize = "18px";
+              (document.querySelectorAll(".has-lyric li") as NodeListOf<HTMLElement>)[i].style.fontSize = "22px";
             }
           }
         }
@@ -93,8 +93,8 @@ export default defineComponent({
 
 .song-container {
   position: fixed;
-  top: 120px;
-  left: 50px;
+  top: 30vh;
+  left: 10vw;
   display: flex;
   flex-direction: column;
 
@@ -102,7 +102,7 @@ export default defineComponent({
     height: 300px;
     width: 300px;
     border: 4px solid white;
-    border-radius: 12px;
+    border-radius: 150px;
   }
 
   .song-info {
@@ -117,14 +117,16 @@ export default defineComponent({
 }
 
 .lyric-container {
+  margin-left: 700px;
+  margin-top: 200px;
   font-family: $font-family;
   .song-lyric {
     position: relative;
-    min-height: 300px;
+    min-height: 500px;
     padding: 30px 0;
-    overflow: auto;
+    overflow: hidden;
     border-radius: 12px;
-    background-color: $color-light-grey;
+    background-color: $color-light-white;
     .has-lyric {
       position: absolute;
       transition: all 1s;
@@ -132,8 +134,8 @@ export default defineComponent({
         width: 100%;
         height: 40px;
         text-align: center;
-        font-size: 14px;
-        line-height: 40px;
+        font-size: 18px;
+        line-height: 60px;
       }
     }
     .no-lyric {

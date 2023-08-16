@@ -160,6 +160,7 @@ const attachImageUrl = HttpManager.attachImageUrl;
 /*评论*/
 .comment {
   position: relative;
+  margin: 100px;
   margin-bottom: 60px;
 
   .comment-title {
