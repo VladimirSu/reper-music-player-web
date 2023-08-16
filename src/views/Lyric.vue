@@ -95,8 +95,8 @@ export default defineComponent({
 
 .song-container {
   position: fixed;
-  top: 30vh;
-  left: 10vw;
+  top: 9vh;
+  left: 3vw;
   display: flex;
   flex-direction: column;
 
