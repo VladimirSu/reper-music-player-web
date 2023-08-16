@@ -19,6 +19,7 @@
       <comment :playId="songId" :type="0"></comment>
     </div>
   </div>
+<!--  专辑图片-->
   <div class="song-container">
     <el-image class="song-pic" fit="contain" :src="attachImageUrl(songPic)" />
     <ul class="song-info">
