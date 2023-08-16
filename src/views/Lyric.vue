@@ -1,11 +1,5 @@
 <template>
-  <div class="song-container">
-    <el-image class="song-pic" fit="contain" :src="attachImageUrl(songPic)" />
-    <ul class="song-info">
-      <li><h2>歌手：{{ singerName }}</h2></li>
-      <li>歌曲：{{ songTitle }}</li>
-    </ul>
-  </div>
+
   <div class="container">
     <div class="lyric-container">
       <div class="song-lyric">
@@ -24,6 +18,13 @@
       </div>
       <comment :playId="songId" :type="0"></comment>
     </div>
+  </div>
+  <div class="song-container">
+    <el-image class="song-pic" fit="contain" :src="attachImageUrl(songPic)" />
+    <ul class="song-info">
+      <li><h2>{{ songTitle }}</h2></li>
+      <li><h3>{{ singerName }}</h3></li>
+    </ul>
   </div>
 </template>
 
@@ -164,6 +165,7 @@ export default defineComponent({
 @media screen and (min-width: $sm) {
   .container {
     padding-top: 30px;
+    margin-top: 100px;
   }
   .lyric-container {
     margin: 0 150px 0px 400px;
